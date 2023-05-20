@@ -19,7 +19,7 @@
 
       <div class="row">
           <div><%= f.label :パスワード %></div>
-          <div><%= f.password_field :psaaword,  autocomplete: "current-password" %></div>
+          <div><%= f.password_field :password,  autocomplete: "current-password" %></div>
       </div>
 
       <div class="row">
@@ -39,4 +39,5 @@
 
 
     <div><%= link_to "こちら", new_customer_registration_path %>から新規登録を行なってください</div>
+    <%= render "public/shared/links" %>
 </div>
