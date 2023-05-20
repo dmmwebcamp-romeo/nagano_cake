@@ -1,6 +1,6 @@
 <h2>配送先登録/一覧</h2>
 
-<%= form_with model:shipping_address,local:true do |f| %>
+<%= form_with model:shipping_address,method: :post do |f| %>
   <div class="form-group">
     <table class="table table-borderless">
       <tbody>
@@ -32,6 +32,7 @@
     <tr></tr>
   </thead>
   <tbody>
+    <% @shipping_addresses.each do |shipping_address| %>
     <tr>
       <td><%= shipping_address.post_code %></td>
       <td><%= shipping_address.address %></td>
@@ -41,5 +42,6 @@
         <%=link_to "削除する", shipping_address_path(shipping_address), method: :delete, class: "btn btn-danger" %>
       </td>
     </tr>
+    <% end %>
   </tbody>
 </table>
