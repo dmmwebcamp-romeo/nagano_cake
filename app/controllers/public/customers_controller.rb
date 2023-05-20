@@ -21,8 +21,15 @@ class Public::CustomersController < ApplicationController
     @customer = current_customer
     @customer.update(is_deleted: true)
     reset_session
-    flassh[:noteice] = "またのご利用をお待ちしております。"
+    flash[:notice] = "またのご利用をお待ちしております。"
     redirect_to root_path
+  end
+
+
+  private
+
+  def customer_params
+    params.require(:customer).permit(:last_name, :first_name)
   end
 
 end
