@@ -16,9 +16,7 @@
           <% @orders.each do |order| %>
           <tr>
             <td>
-              <%= link_to admin_order_path(order.id), do %>
-              <%= order.created_at.strftime('%Y/%m/%d %H:%M:%S')  %>
-              <% end %>
+              
             </td>
             <td>
               <%= order.customer.last_name + order.customer.first_name %>
@@ -27,7 +25,7 @@
               <%= order.order_items.sum(:quantity) %>
             </td>
             <td>
-              <%= #order.order_statuses_i18n %>
+              <%= order.order_statuses_i18n %>
             </td>
             <% end %>
           </tr>
