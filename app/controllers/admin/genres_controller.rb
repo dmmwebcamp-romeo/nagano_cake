@@ -8,11 +8,11 @@ class Admin::GenresController < ApplicationController
   def create
     @genre = Genre.new(genre_params)
     if @genre.save
-       redirect_to admin_genres_path, notice: "ジャンルを追加しました"
+      redirect_to admin_genres_path, notice: "ジャンルを追加しました。"
     else
-       flash.now[:danger] = "ジャンル名を入れて下さい"
-       @genres = Genre.all
-       render 'index'
+      flash.now[:danger] = "予期せぬエラーが発生しました"
+      @genres = Genre.all
+      render 'index'
     end
   end
     
