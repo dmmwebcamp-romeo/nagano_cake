@@ -1,0 +1,17 @@
+<div class="container px-5 px-sm-0">
+  <div class="row p-5">
+    <div class="col-md-3">
+      <%= image_tag @item.image, size: "200×200" %>
+    </div>
+     
+    <div class="col-md-4 offset-md-1 mx-auto">
+      <p><%= @item.name %></p>
+      <p><%= @item.description %></p>
+      <p><%= (@item.price *1.1).round.to_s(:delimited) %>(税込)円</p>
+      
+      <%= select("cart_item", "quantity", ["1", "2", "3", "4", "5", "6", "7", "8", "9"], { include_blank: "個数選択" }) %>
+      <%= link_to "カートに入れる", cart_items_path, class: "btn btn-success" %>
+    </div>
+  </div>
+</div>
+  
