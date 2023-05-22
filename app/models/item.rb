@@ -1,12 +1,4 @@
 class Item < ApplicationRecord
-<<<<<<< HEAD
-  
-  belongs_to :genre
-  
-  has_one_attached :image
-  
-  
-=======
 
   belongs_to :genre
 
@@ -28,5 +20,4 @@ class Item < ApplicationRecord
     (self.price * 1.10).round
   end
 
->>>>>>> origin/develop
 end
