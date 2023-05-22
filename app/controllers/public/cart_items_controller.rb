@@ -16,9 +16,7 @@ before_action :authenticate_customer!
 
     elsif @cart_item.save
       @cart_items = current_customer.cart_items.all
-      render 'index'
-    else
-      render 'index'
+      redirect_to cart_items_path
     end
 
   end
@@ -42,7 +40,7 @@ before_action :authenticate_customer!
   end
 
   def destroy_all
-    cart_items = current_customer.cart_items.destroy.all
+    cart_items = current_customer.cart_items.all
     cart_items.destroy_all
     redirect_to request.referer
   end
