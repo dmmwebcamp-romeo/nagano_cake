@@ -2,8 +2,8 @@ class Public::CartItemsController < ApplicationController
 before_action :authenticate_customer!
 
   def index
-    @cart_items = current_customer.cart_items
-    @total = 0
+    @cart_items = current_customer.cart_items.all
+    @total_price = @cart_items.inject(0) { |sum, cart_item| sum + cart_item.subtotal}
   end
 
   def create
@@ -37,12 +37,13 @@ before_action :authenticate_customer!
   def destroy
     cart_item = CartItem.find(params[:id])
     cart_item.destroy
+    @cart_items = CartItem.all
     redirect_to request.referer
   end
 
-  def destrou_all
-    @cart_items = current_customer.cart_items
-    @cart_items.destroy_all
+  def destroy_all
+    cart_items = current_customer.cart_items.destroy.all
+    cart_items.destroy_all
     redirect_to request.referer
   end
 
@@ -51,7 +52,7 @@ before_action :authenticate_customer!
   private
 
   def cart_item_params
-        params.require(:cart_item).permit(:customer_id, :item_id, :quantity)
+     params.require(:cart_item).permit(:customer_id, :item_id, :quantity, :image)
   end
 
 

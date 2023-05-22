@@ -7,4 +7,9 @@ class CartItem < ApplicationRecord
     item.with_tax_price * quantity
   end
 
+  def total_price
+    cart_item.subtotal.sum
+  end
+
+
 end
