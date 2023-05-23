@@ -13,10 +13,9 @@
       <h4>¥<%= (@item.price * 1.1).round.to_s(:delimited)  %><p class="h6 d-inline">（税込）</p></h4><br>
 
       <%= form_with(model: @cart_item, url: cart_items_path, local: true) do |f| %>
-      <%= f.label :quantity, "個数選択" %>
-      <%= f.select :quantity, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] %>
+      <%= f.select :quantity, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], {include_blank: "個数選択"} , class: 'form-control-sm'%>
       <%= f.hidden_field :item_id, :value => @item.id %>
-      <%= f.submit "カートに入れる", class: "btn btn-success" %>
+      <%= f.submit "カートに入れる", class: "btn btn-success ml-5" %>
     </div>
     <% end %>
   </div>
