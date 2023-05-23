@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'items/index'
+  get 'items/show'
   devise_for :customers,skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
@@ -25,8 +27,8 @@ Rails.application.routes.draw do
     get 'customers/quit' => 'customers#quit'
     patch 'customers/out' => 'customers#out'
 
-    resources :cart_items, only: [:index,:destroy,:update,:create]
     delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
+    resources :cart_items, only: [:index,:destroy,:update,:create]
 
     resources :orders, only: [:new,:create,:index,:show]
     post 'orders/confirm' => 'orders#confirm'
