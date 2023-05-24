@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     root to:"homes#top"
     get 'about' => 'homes#about'
 
+    get 'items/genre_serch' => 'items#genre_search', as: "genre_search"
     resources :items, only: [:index,:show]
 
     get 'customers/mypage' => 'customers#show'
