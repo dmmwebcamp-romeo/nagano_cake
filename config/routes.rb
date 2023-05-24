@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     root to:"homes#top"
     get 'about' => 'homes#about'
 
+    get 'items/genre_serch' => 'items#genre_search', as: "genre_search"
     resources :items, only: [:index,:show]
 
     get 'customers/mypage' => 'customers#show'
@@ -30,9 +31,10 @@ Rails.application.routes.draw do
     delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
     resources :cart_items, only: [:index,:destroy,:update,:create]
 
+    get 'orders/complete' => 'orders#complete'
     resources :orders, only: [:new,:create,:index,:show]
     post 'orders/confirm' => 'orders#confirm'
-    get 'orders/complete' => 'ordesr#complete'
+    
 
     resources :shipping_addresses, only: [:index,:edit,:destroy,:update,:create]
 
