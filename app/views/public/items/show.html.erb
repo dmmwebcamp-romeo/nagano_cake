@@ -1,12 +1,10 @@
-<div class="container px-5 px-sm-0">
-  <div class="row p-5">
-    <div class="col-md-2">
-
-    </div>
-    <div class="col-md-3">
+<div class="container">
+  <div class="row mt-5">
+  <%= render 'genre_list', genres: @genres %>
+    <div class="col-3">
       <%= image_tag @item.image, size: "400x300" %>
     </div>
-    <div class="col-md-2"></div>
+    <div class="col-md-1"></div>
     <div class="col-md-4 offset-md-1 mx-auto">
       <h4 class="font-weight-bold mb-3"><%= @item.name%></h4>
       <h5><%= @item.description %></5><br><br><br><br><br>
