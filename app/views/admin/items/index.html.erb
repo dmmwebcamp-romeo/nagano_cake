@@ -2,18 +2,23 @@
   <div class= "row">
     <div class="col">
 
-      <h1>商品一覧</h1>
+      <h1 style="width: 20%; text-align: center; margin: 15px; background: #eee">商品一覧</h1>
 
       <!--//#商品新規登録ボタン（new.html)　リンク-->
-      <button>
-        <%= link_to new_admin_item_path do %>
-        <i class="fal fa-plus-circle"></i>
-      </button>
-        <% end %>
+      <div class="d-flex flex-row-reverse bd-highlight">
+        <div class="p-2 bd-highlight"></div>
+        <div class="p-2 bd-highlight"></div>
+        <div class="p-2 bd-highlight">
+          <%= link_to new_admin_item_path do %>
+          <i class="fas fa-plus fa-2x" style="color: #848a94;"></i>
+          <% end %>
+        </div>
+      </div>
+
 
       <table class= "table table-hover tableinverse">
 
-        <thead>
+        <thead style="width: 50%; text-align: center; margin: 15px; background: #eee">
           <tr>
             <th>商品ID</th>
             <th>商品名</th>
@@ -25,7 +30,7 @@
 
     <% @items.each do |item| %>
 
-        <tbody>
+        <tbody class="text-center">
           <tr>
             <td>
               <%= item.id %>
@@ -45,12 +50,16 @@
               <%= item.genre.name %>
             </td>
 
-            <td>
-              <%= item.is_active ? '販売中' : '販売停止中'  %>
+            <td class="font-weight-bold">
+            <% if item.is_active == true %>
+              <div class="text-success">販売中</div>
+            <% else %>
+              <div class="text-muted">販売停止中</div>
+            <% end %>
             </td>
           </tr>
         </tbody>
-    <% end %>
+       <% end %>
       </table>
 
       <!--%= #paginate items %>-->
