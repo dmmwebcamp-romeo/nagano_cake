@@ -1,8 +1,14 @@
 class Public::OrdersController < ApplicationController
   
   def new
-    @order = Order.new
-    @addresses = current_customer.shipping_addresses
+    cart_items = current_customer.cart_items
+    if cart_items.present?
+      @order = Order.new
+      @addresses = current_customer.shipping_addresses
+    else
+      flash[:notice] = "カートに商品を追加して下さい"
+      redirect_to request.referer
+    end
   end
   
   def confirm

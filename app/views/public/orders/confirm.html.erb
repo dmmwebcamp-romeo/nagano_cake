@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row my-3">
    <div class="col-sm-12 offset-sm-1">
-     <h3 style="width: 16%; margin: 25px; background: #eee">注文情報入力</h3>
+     <h3 style="width: 16%; margin: 25px; background: #eee">注文情報確認</h3>
   </div>
    </div>
    <div class="row">
@@ -20,12 +20,12 @@
           <% @cart_items.each do |cart_item| %>
             <tr>
               <td>
-                <%= image_tag cart_item.item.image, size: "60x50" %>
+                <%= image_tag cart_item.item.image, size: "30x20" %>
                 <%= cart_item.item.name %>
              </td>
-              <td class="align-middle"><%= ((cart_item.item.price * 1.1).floor).to_s(:delimited, delimiter: ',') %>円</td>
+              <td class="align-middle"><%= ((cart_item.item.price * 1.1).floor).to_s(:delimited, delimiter: ',') %></td>
               <td class="align-middle"><%= cart_item.quantity %></td>
-              <td class="align-middle"><%= ((cart_item.item.price * cart_item.quantity * 1.1).floor).to_s(:delimited, delimiter: ',') %>円</td>
+              <td class="align-middle"><%= ((cart_item.item.price * cart_item.quantity * 1.1).floor).to_s(:delimited, delimiter: ',') %></td>
             </tr>
             <% @total_price += (cart_item.item.price * cart_item.quantity * 1.1).floor %>
           <% end %>

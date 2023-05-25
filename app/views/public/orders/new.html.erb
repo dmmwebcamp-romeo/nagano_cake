@@ -2,6 +2,9 @@
   <div class="row">
     <div class="px-sm-0 ">
       <h4 style="width: 22%; margin: 25px; background: #eee">注文情報入力</h4>
+      <div>
+        <%= flash[:notice] %>
+      </div>
       <%= form_with model: @order, url: {controller: 'public/orders', action: 'confirm' },  local:true do |f| %>
       
       <h5 class="mt-2"><b>支払方法</b></h5>
