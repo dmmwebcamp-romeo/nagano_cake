@@ -1,6 +1,5 @@
 <div class="container">
- <h4 style="width: 17%; text-align: center; margin: 50px; background: #eee">ジャンル編集</h4>
-  <div class="row"> 
+  <div class="row">
    <div class="col-8">
     <%= form_with model: @genre, url: admin_genre_path(@genre.id), method: :patch do |f| %>
     <table class= "table">
