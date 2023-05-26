@@ -1,8 +1,11 @@
 <div class="container mt-5">
-  <div class="d-flex justify-content-between mb-3">
-    <h4 class="bg-light ml-3">ショッピングカート</h3>
+  <div class="row d-flex justify-content-between mb-3">
+    <h4 style="width: 19%; margin: 20px; background: #7f141a; color:white">ショッピングカート</h4>
+    <div class="col-8　float-right test-box">
     <%= link_to "カートを空にする", cart_items_destroy_all_path, method: :delete, class: "btn btn-danger" %>
+    </div>
   </div>
+  
   <div>
     <table class="table table-bordered">
       <thead class="bg-light">
