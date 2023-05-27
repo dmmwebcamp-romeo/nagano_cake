@@ -17,5 +17,5 @@ ja:
       making_status:
         impossible_work: "着手不可"
         waiting_work: "製作待ち"
-        working: "作成中"
-        finish: "作成完了"
+        working: "製作中"
+        finish: "製作完了"
