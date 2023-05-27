@@ -1,0 +1,70 @@
+<div class= "container">
+  <div class= "row">
+    <div class="col">
+
+      <h2 style="width: 20%; text-align: center; margin: 18px; background: #7f141a; color:white">商品一覧</h2>
+
+      <!--//#商品新規登録ボタン（new.html)　リンク-->
+      <div class="d-flex flex-row-reverse bd-highlight">
+        <div class="p-2 bd-highlight"></div>
+        <div class="p-2 bd-highlight"></div>
+        <div class="p-2 bd-highlight">
+          <%= link_to new_admin_item_path do %>
+          <i class="fas fa-plus fa-2x" style="color: #848a94;"></i>
+          <% end %>
+        </div>
+      </div>
+
+
+      <table class= "table table-hover tableinverse">
+
+        <thead style="width: 50%; text-align: center; margin: 15px; background: #eee">
+          <tr>
+            <th>商品ID</th>
+            <th>商品名</th>
+            <th>税抜価格</th>
+            <th>ジャンル</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+
+    <% @items.each do |item| %>
+
+        <tbody class="text-center">
+          <tr>
+            <td>
+              <%= item.id %>
+            </td>
+
+            <td>
+              <%= link_to admin_item_path(item.id) do %>
+              <%= item.name %>
+              <% end %>
+            </td>
+
+            <td>
+              <%= item.price.to_s(:delimited) %>
+            </td>
+
+            <td>
+              <%= item.genre.name %>
+            </td>
+
+            <td class="font-weight-bold">
+            <% if item.is_active == true %>
+              <div class="text-success">販売中</div>
+            <% else %>
+              <div class="text-muted">販売停止中</div>
+            <% end %>
+            </td>
+          </tr>
+        </tbody>
+       <% end %>
+      </table>
+
+      <!--%= #paginate items %>-->
+
+
+    </div>
+  </div>
+</div>

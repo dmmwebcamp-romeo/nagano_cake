@@ -1,0 +1,63 @@
+<div class='container'>
+  <div class='row'>
+        <h3 style="width: 13%; margin: 30px; background: #7f141a; color:white">マイページ</h3>
+  </div>
+
+  <div class='row'>
+    <div class='col-8'>
+      <div class='d-flex justify-content-start pt-3'>
+        <div>
+          <h4>登録情報</h4>
+        </div>
+        <div class='col-8'>
+          <%= link_to "編集する", customers_information_edit_path, class: "btn btn-sm btn-success" %>
+        </div>
+      </div>
+    <div class='responsive-sm'>
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <td class='col-3 border border-dark'>氏名</td>
+            <td class='border border-dark'><%= @customer.last_name %> <%= @customer.first_name %></td>
+          </tr>
+          <tr>
+            <td class='col-3 border border-dark'>カナ</td>
+            <td class='border border-dark'><%= @customer.last_name_kana %> <%= @customer.first_name_kana %></td>
+          </tr>
+          <tr>
+            <td class='col-3 border border-dark'>郵便番号</td>
+            <td class='border border-dark'><%= @customer.post_code %></td>
+          </tr>
+          <tr>
+            <td class='col-3 border border-dark'>住所</td>
+            <td class='border border-dark'><%= @customer.address %></td>
+          </tr>
+          <tr>
+            <td class='col-3 border border-dark'>電話番号</td>
+            <td class='border border-dark'><%= @customer.phone_number %></td>
+          </tr>
+          <tr>
+            <td class='col-3 border border-dark'>メールアドレス</td>
+            <td class='border border-dark'><%= @customer.email %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <table>
+      <tr>
+        <th>
+          配送先
+        </th>
+        <td class='col-8'>
+          <%= link_to "一覧を見る", shipping_addresses_path, class: "btn btn-sm btn-primary" %></br>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          注文履歴
+        </th>
+        <td class='col-8'>
+          <%= link_to "一覧を見る", orders_path, class: "btn btn-sm btn-primary" %></br>
+        </td>
+      </tr>
+    </table>

@@ -1,24 +1,79 @@
-# README
+# ながのCAKE ECサイト
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* [概要](#概要)
+* [メンバー](#メンバー)
+* [使用している言語・フレームワークのバージョン](#使用している言語・フレームワークのバージョン)
+* [実装した機能](#実装した機能)
+* [インストール方法](#インストール方法)
+* [管理者ページのログイン](#管理者ページのログイン)
+* [作成者アカウント](#作成者アカウント)
 
-Things you may want to cover:
+---
 
-* Ruby version
+## 概要
+長野県にある小さな洋菓子店「ながのCAKE」の商品を通販するためのECサイトを開発しました。
+※このECサイトはDMM WEBCAMP受講生によるチーム開発課題です。実在する店舗のサイトではありません。
 
-* System dependencies
+## メンバー
+* えっさん
+* しらしら
+* ずみさん
+* つるさん
 
-* Configuration
+## 使用している言語・フレームワークのバージョン
+* ruby 3.1.2
+* Rails 6.1.7.3
+* bootstrap 4.5.2
 
-* Database creation
+## 実装した機能
+* 顧客側
+  - 新規会員登録、会員情報の編集、退会
+  - ログイン／ログアウト
+  - 配送先住所の登録、編集、削除
+  - 商品一覧表示、商品詳細情報表示
+  - カート追加、カート一覧表示、カート内商品編集
+  - 注文機能、支払い方法／配送先の指定
+  - 注文履歴の閲覧
+  - ジャンル検索
 
-* Database initialization
+* 管理者側
+  - ログイン／ログアウト
+  - 商品の新規追加、編集
+  - 商品一覧表示、商品詳細情報表示
+  - ジャンル設定
+  - 顧客一覧表示、顧客詳細情報表示
+  - 注文履歴一覧表示、注文履歴詳細表示
 
-* How to run the test suite
+## インストール方法
+~~~
+$ git clone git@github.com:dmmwebcamp-romeo/nagano_cake.git
+~~~
 
-* Services (job queues, cache servers, search engines, etc.)
+~~~
+$ cd nagano_cake
+~~~
 
-* Deployment instructions
+~~~
+$ bundle install
+~~~
 
-* ...
+~~~
+$ yarn install
+~~~
+
+~~~
+$ rails db:migrate
+~~~
+
+~~~
+$ rails db:seed
+~~~
+
+## 管理者ページのログイン
+/adminをURLに入力し、下記の情報を入力することで管理者としてログインできます。
+* メールアドレス：admin@admin
+* パスワード：admin0
+
+## 作成者アカウント
+チームアカウント(チームRomeo)
+* https://github.com/dmmwebcamp-romeo/nagano_cake
